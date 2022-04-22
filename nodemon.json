@@ -1,0 +1,4 @@
+{
+    // lắng nghe thay đổi trên các đuôi file
+    "ext": "js json mjs"
+}
