@@ -1,17 +1,16 @@
-const SiteController = require('../app/controllers/Site.controller')
-const newsRouter = require('./News.route')
-const siteRouter = require('./Site.route')
+const SiteController = require('../app/controllers/Site.controller');
+const newsRouter = require('./News.route');
+const siteRouter = require('./Site.route');
 
-function route(app){
+function route(app) {
+    app.use('/news', newsRouter);
 
-      app.use('/news', newsRouter)
-      
-      //using handlebars
-      // app.get('/news', (req, res) => {
-        //   res.render('news')
-        // })
-        
-      app.use('/', siteRouter)
+    //using handlebars
+    // app.get('/news', (req, res) => {
+    //   res.render('news')
+    // })
+
+    app.use('/', siteRouter);
 }
 
-module.exports = route 
+module.exports = route;
