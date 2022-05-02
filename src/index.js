@@ -6,8 +6,11 @@ const { engine } = require('express-handlebars');
 const path = require('path');
 const app = express();
 const port = 3000;
+const db = require('./config/db');
+const route = require('./routes/index');
 
-const route = require('./routes');
+//connect to db
+db.connect();
 
 //Check when static files are being accessed
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,11 +35,11 @@ app.engine(
 );
 
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Routes init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`listening on port ${port}`);
 });

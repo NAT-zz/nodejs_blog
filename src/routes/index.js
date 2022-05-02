@@ -1,4 +1,3 @@
-const SiteController = require('../app/controllers/Site.controller');
 const newsRouter = require('./News.route');
 const siteRouter = require('./Site.route');
 
